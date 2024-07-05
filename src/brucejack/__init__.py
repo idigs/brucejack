@@ -1,4 +1,4 @@
-"""BruceJack: a Python package for exploring the Fibonacci sequence"""
+"""BruceJack: a Python package for approximating the Fibonacci sequence as a geometric series"""
 
 import logging
 

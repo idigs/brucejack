@@ -1,0 +1,15 @@
+---
+
+name: brucejack
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python
+  - versioningit
+  - toml
+  - conda-build < 4
+  - conda-verify
+  - python-build
+
