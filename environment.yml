@@ -6,9 +6,14 @@ channels:
   - conda-forge
 
 dependencies:
+  # runtime
   - python
   - versioningit
   - toml
+
+  # packaging
+  - anaconda-client
+  - boa
   - conda-build < 4
   - conda-verify
   - python-build
