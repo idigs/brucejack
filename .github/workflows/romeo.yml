@@ -27,7 +27,7 @@ jobs:
         run: |
           # boa uses mamba to resolve dependencies
           cd ./conda.recipe
-          conda mambabuild --output-folder . .
+          VERSION="$(versioningit ../) conda mambabuild --output-folder . .
 
       - name: Verify Conda Package
         run: |
