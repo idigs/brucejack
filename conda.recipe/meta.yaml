@@ -5,7 +5,8 @@ package:
   version: 1.2.1
 
 build:
-  number: 3
+  noarch: python
+  number: 4
 
 requirements:
   run:
