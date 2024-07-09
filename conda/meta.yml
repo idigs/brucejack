@@ -1,0 +1,20 @@
+---
+
+package:
+  name: brucejack
+  version: 1.2.1
+
+build:
+  number: 3
+
+requirements:
+  run:
+    - python
+
+about:
+  summary: This is a simple meta-package
+
+
+# Constructed from https://github.com/anaconda/anaconda-client/blob/master/example-packages/conda/meta.yaml
+
+
