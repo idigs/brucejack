@@ -1,0 +1,39 @@
+---
+
+name: romeo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job_one:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Grab the project source
+        uses: actions/checkout@v3
+
+      - name: Setup conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          mamba-version: "*"
+          environment-file: environment.yml
+
+      - name: Build Conda Package
+        run: |
+          # boa uses mamba to resolve dependencies
+          cd ./conda.recipe
+          VERSION=$(versioningit ../) conda mambabuild --output-folder . -c conda-forge .
+
+      - name: Verify Conda Package
+        run: |
+          conda verify conda.recipe/noarch/brucejack*.tar.bz2
+
+      - name: Publish to Anaconda.org
+        env:
+          ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+        run: |
+          anaconda upload --label main conda.recipe/noarch/brucejack*.tar.bz2
+
+    
