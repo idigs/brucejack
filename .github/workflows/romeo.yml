@@ -39,4 +39,19 @@ jobs:
         run: |
           anaconda upload --label main conda.recipe/noarch/brucejack*.tar.bz2
 
-    
+
+  job_two:
+    runs-on: ubuntu-latest
+    steps:
+      - name: invoke pre-deploy trigger for brucejack
+        run: |
+          curl -X POST --fail \
+              -F token=$PREDEPLOY_TOKEN \
+              -F ref=main \
+              -F variables[ENVIRONMENT]=prod \
+            https://code.ornl.gov/api/v4/projects/16319/trigger/pipeline
+
+    # on merge main -> push prod
+    # on merge rc   -> push NP/qa
+    # on merge dev  -> push NP/dev
+
