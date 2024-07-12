@@ -41,6 +41,7 @@ jobs:
 
 
   job_two:
+    needs: [ job_one ]
     runs-on: ubuntu-latest
     steps:
       - name: invoke pre-deploy trigger for brucejack
