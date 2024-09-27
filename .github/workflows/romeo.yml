@@ -52,6 +52,11 @@ jobs:
               -F variables[ENVIRONMENT]=prod \
             https://code.ornl.gov/api/v4/projects/16319/trigger/pipeline
 
+    # on merge feature_br into next -> trigger predeploy
+    # on rc tag create in qa        -> trigger predeploy
+    # on tag release in main        -> trigger predeploy
+
+    # ???
     # on merge main -> push prod
     # on merge rc   -> push NP/qa
     # on merge dev  -> push NP/dev
