@@ -6,7 +6,7 @@ package:
 
 build:
   noarch: python
-  number: 5
+  number: 6
 
 requirements:
   run:
